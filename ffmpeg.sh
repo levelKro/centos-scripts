@@ -34,16 +34,17 @@ yum -y -q install amrnb-devel amrwb-devel opencore-amr-devel
 # NASM compiler, version la plus récente pour CentOS 7
 rpm -iv https://www.nasm.us/pub/nasm/stable/linux/nasm-2.14.02-0.fc27.x86_64.rpm
 
+#MP3 3.100
 while true; do
     read -p "Besoin de compiler codec Lame MP3 ?" ynmp3
     case $ynmp3 in
         [YyOo]* ) 
 echo "### Librairie MP3 Lame"
 cd /opt  
-wget http://downloads.sourceforge.net/project/lame/lame/3.99/lame-3.99.5.tar.gz 
-tar xzf lame-3.99.5.tar.gz
-rm -f lame-3.99.5.tar.gz  
-cd lame-3.99.5  
+wget http://downloads.sourceforge.net/project/lame/lame/3.100/lame-3.100.tar.gz
+tar xzvf lame-3.100.tar.gz
+rm -f lame-3.100.tar.gz
+cd lame-3.100
 ./configure
 make -s  
 make -s install  
@@ -54,6 +55,8 @@ read -p "### Pas d'erreur ? Appuyer sur [ENTRER] pour continuer... (ou CTRL+C po
         * ) echo "Entrer Y pour oui ou N pour non.";;
     esac
 done
+
+#XVID 1.3.2
 while true; do
     read -p "Besoin de compiler codec XViD ?" ynxvid
     case $ynxvid in
@@ -74,16 +77,18 @@ read -p "### Pas d'erreur ? Appuyer sur [ENTRER] pour continuer... (ou CTRL+C po
         * ) echo "Entrer Y pour oui ou N pour non.";;
     esac
 done
+
+#OGG 1.3.3
 while true; do
     read -p "Besoin de compiler codec OGG ?" ynogg
     case $ynogg in
         [YyOo]* ) 
 echo "### Librairie OGG"
 cd /opt
-wget http://downloads.xiph.org/releases/ogg/libogg-1.3.1.tar.gz
-tar xzf libogg-1.3.1.tar.gz
-rm -f libogg-1.3.1.tar.gz
-cd libogg-1.3.1
+wget http://downloads.xiph.org/releases/ogg/libogg-1.3.3.tar.gz
+tar xzf libogg-1.3.3.tar.gz
+rm -f libogg-1.3.3.tar.gz
+cd libogg-1.3.3
 ./configure --prefix="$HOME/ffmpeg_build" --disable-shared
 make -s
 make -s install
@@ -94,16 +99,18 @@ read -p "### Pas d'erreur ? Appuyer sur [ENTRER] pour continuer... (ou CTRL+C po
         * ) echo "Entrer Y pour oui ou N pour non.";;
     esac
 done
+
+#VORBIS 1.3.5
 while true; do
     read -p "Besoin de compiler codec Vorbis ?" ynvorbis
     case $ynvorbis in
         [YyOo]* ) 
 echo "### Librairie Vorbis"
 cd /opt
-wget http://downloads.xiph.org/releases/vorbis/libvorbis-1.3.4.tar.gz
-tar xzf libvorbis-1.3.4.tar.gz
-rm -f libvorbis-1.3.4.tar.gz
-cd libvorbis-1.3.4
+wget http://downloads.xiph.org/releases/vorbis/libvorbis-1.3.5.tar.gz
+tar xzf libvorbis-1.3.5.tar.gz
+rm -f libvorbis-1.3.5.tar.gz
+cd libvorbis-1.3.5
 ./configure --prefix="$HOME/ffmpeg_build" --with-ogg="$HOME/ffmpeg_build" --disable-shared
 make -s
 make -s install
@@ -114,6 +121,8 @@ read -p "### Pas d'erreur ? Appuyer sur [ENTRER] pour continuer... (ou CTRL+C po
         * ) echo "Entrer Y pour oui ou N pour non.";;
     esac
 done
+
+#THEORA 1.1.1
 while true; do
     read -p "Besoin de compiler codec Theora ?" yntheora
     case $yntheora in
@@ -134,6 +143,8 @@ read -p "### Pas d'erreur ? Appuyer sur [ENTRER] pour continuer... (ou CTRL+C po
         * ) echo "Entrer Y pour oui ou N pour non.";;
     esac
 done
+
+#AAC 0.1.2
 while true; do
     read -p "Besoin de compiler codec AAC ?" ynaac
     case $ynaac in
@@ -154,6 +165,8 @@ read -p "### Pas d'erreur ? Appuyer sur [ENTRER] pour continuer... (ou CTRL+C po
         * ) echo "Entrer Y pour oui ou N pour non.";;
     esac
 done
+
+#FACC 1.28
 while true; do
     read -p "Besoin de compiler codec FAAC ?" ynfaac
     case $ynfaac in
@@ -176,6 +189,8 @@ read -p "### Pas d'erreur ? Appuyer sur [ENTRER] pour continuer... (ou CTRL+C po
         * ) echo "Entrer Y pour oui ou N pour non.";;
     esac
 done
+
+#YASM 1.2.0
 while true; do
     read -p "Besoin de compiler codec Yasm ?" ynyasm
     case $ynyasm in
@@ -198,6 +213,8 @@ read -p "### Pas d'erreur ? Appuyer sur [ENTRER] pour continuer... (ou CTRL+C po
         * ) echo "Entrer Y pour oui ou N pour non.";;
     esac
 done
+
+#VPX 1.3.0
 while true; do
     read -p "Besoin de compiler codec VPx ?" ynvpx
     case $ynvpx in
@@ -217,6 +234,8 @@ read -p "### Pas d'erreur ? Appuyer sur [ENTRER] pour continuer... (ou CTRL+C po
         * ) echo "Entrer Y pour oui ou N pour non.";;
     esac
 done
+
+#X264 LATEST
 while true; do
     read -p "Besoin de compiler codec x264 ?" ynx264
     case $ynx264 in
@@ -237,18 +256,101 @@ read -p "### Pas d'erreur ? Appuyer sur [ENTRER] pour continuer... (ou CTRL+C po
     esac
 done
 
+#X265 LATEST
+while true; do
+    read -p "Besoin de compiler codec x265 ?" yn
+    case $yn in
+        [YyOo]* ) 
+cd /opt
+hg clone https://bitbucket.org/multicoreware/x265
+cd /opt/x265/build/linux
+cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX="$HOME/ffmpeg_build" -DENABLE_SHARED:bool=off ../../source
+make
+make install
+			break;;
+        [Nn]* ) break;;
+        * ) echo "Entrer Y pour oui ou N pour non.";;
+    esac
+done
+
+#OPUS 1.2.1
+while true; do
+    read -p "Avez-vous besoin de compiler codec OPUS ?" ynopus
+    case $ynopus in
+        [YyOo]* ) 
+cd /opt
+wget https://archive.mozilla.org/pub/opus/opus-1.2.1.tar.gz
+tar xzvf opus-1.2.1.tar.gz
+cd opus-1.2.1
+./configure --prefix="$HOME/ffmpeg_build" --disable-shared
+make
+make install
+			break;;
+        [Nn]* ) break;;
+        * ) echo "Entrer Y pour oui ou N pour non.";;
+    esac
+done
+
+#FDK-AAC LATEST
+while true; do
+    read -p "Avez-vous besoin de compiler codec FDK-AAC ?" ynfdkaac
+    case $ynfdkaac in
+        [YyOo]* ) 
+cd /opt
+git clone --depth 1 https://github.com/mstorsjo/fdk-aac
+cd fdk-aac
+autoreconf -fiv
+./configure --prefix="$HOME/ffmpeg_build" --disable-shared
+make
+make install
+			break;;
+        [Nn]* ) break;;
+        * ) echo "Entrer Y pour oui ou N pour non.";;
+    esac
+done
+
+# PREPARE
 export LD_LIBRARY_PATH=/usr/local/lib/
 echo /usr/local/lib >> /etc/ld.so.conf.d/custom-libs.conf
 ldconfig
 
+#FFMPEG 2.5
 echo "### Encodage du FFMpeg"
-cd /opt
-git clone git://source.ffmpeg.org/ffmpeg.git
+
+#cd /opt
+#git clone git://source.ffmpeg.org/ffmpeg.git
+#cd ffmpeg
+#git checkout release/2.5
+
+wget https://ffmpeg.org/releases/ffmpeg-snapshot.tar.bz2
+tar xjvf ffmpeg-snapshot.tar.bz2
 cd ffmpeg
-git checkout release/2.5
+
 PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig"
 export PKG_CONFIG_PATH
-./configure --prefix="$HOME/ffmpeg_build" --extra-cflags="-I$HOME/ffmpeg_build/include" --extra-ldflags="-L$HOME/ffmpeg_build/lib" --bindir="$HOME/bin" --extra-libs=-ldl --enable-version3 --enable-libvpx --enable-libfaac --enable-libmp3lame --enable-libtheora --enable-libvorbis --enable-libx264 --enable-libvo-aacenc --enable-libxvid --disable-ffplay --enable-gpl --enable-postproc --enable-nonfree --enable-avfilter --enable-pthreads
+./configure --prefix="$HOME/ffmpeg_build" \
+   --extra-cflags="-I$HOME/ffmpeg_build/include" \
+   --extra-ldflags="-L$HOME/ffmpeg_build/lib" \
+   --bindir="$HOME/bin" \
+   --extra-libs=-ldl \
+   --enable-version3 \
+   --enable-libfdk_aac \
+   --enable-libx265 \
+   --enable-libopus \
+   --enable-libvpx \
+   --enable-libfaac \
+   --enable-libmp3lame \
+   --enable-libtheora \
+   --enable-libvorbis \
+   --enable-libx264 \
+   --enable-libvo-aacenc \
+   --enable-libxvid \
+   --disable-ffplay \
+   --enable-gpl \
+   --enable-postproc \
+   --enable-nonfree \
+   --enable-avfilter \
+   --enable-pthreads
 make -s
 make -s install
 make -s clean
