@@ -24,13 +24,15 @@ yum -y -q remove libvpx libogg libvorbis libtheora libx264 x264 ffmpeg
 echo "### Installation des pre-requis"
 yum -y -q install glibc gcc gcc-c++ autoconf automake libtool git make nasm pkgconfig subversion
 yum -y -q install SDL-devel a52dec a52dec-devel alsa-lib-devel faac faac-devel faad2 faad2-devel
-yum -y -q install freetype-devel giflib gsm gsm-devel imlib2 imlib2-devel lame lame-devel libICE-devel libSM-devel libX11-devel
+yum -y -q install freetype-devel giflib gsm gsm-devel imlib2 imlib2-devel  libICE-devel libSM-devel libX11-devel
 yum -y -q install libXau-devel libXdmcp-devel libXext-devel libXrandr-devel libXrender-devel libXt-devel
-yum -y -q install libogg libvorbis vorbis-tools mesa-libGL-devel mesa-libGLU-devel xorg-x11-proto-devel zlib-devel
-yum -y -q install libtheora theora-tools
+#yum -y -q install libogg libvorbis vorbis-tools lame lame-devel libtheora theora-tools
+yum -y -q install mesa-libGL-devel mesa-libGLU-devel xorg-x11-proto-devel zlib-devel
 yum -y -q install ncurses-devel
 yum -y -q install libdc1394 libdc1394-devel
 yum -y -q install amrnb-devel amrwb-devel opencore-amr-devel 
+# NASM compiler, version la plus récente pour CentOS 7
+rpm -iv https://www.nasm.us/pub/nasm/stable/linux/nasm-2.14.02-0.fc27.x86_64.rpm
 
 while true; do
     read -p "Besoin de compiler codec Lame MP3 ?" ynmp3
