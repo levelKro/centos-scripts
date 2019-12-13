@@ -66,8 +66,8 @@ while true; do
 done
 
 while true; do
-    read -p "Utilisez-vous un serveur SHOUTCast ou compatible (port 8000/8001) ?" ync
-    case $ync in
+    read -p "Utilisez-vous un serveur SHOUTCast ou compatible (port 8000/8001) ?" ynd
+    case $ynd in
         [YyOo]* ) 
 			echo "### Port 8000,8001 ouverts (SHOUTCats)..."
 		iptables -A INPUT -p udp -m tcp --dport 8000 -j ACCEPT
@@ -79,8 +79,8 @@ while true; do
 done
 
 while true; do
-    read -p "Utilisez-vous un serveur Red5/Flash ou compatible (port 19132) ?" ync
-    case $ync in
+    read -p "Utilisez-vous un serveur Red5/Flash ou compatible (port 19132) ?" yne
+    case $yne in
         [YyOo]* ) 
 			echo "### Port 19132 ouverts (Red5/Flash)..."
 			iptables -A INPUT -p udp -m udp --dport 19132 -j ACCEPT
@@ -93,8 +93,8 @@ done
 
 
 while true; do
-    read -p "Utilisez-vous le gestionnaire Webmin/Virtualmin ?" ync
-    case $ync in
+    read -p "Utilisez-vous le gestionnaire Webmin/Virtualmin ?" ynf
+    case $ynf in
         [YyOo]* ) 
 			echo "### Port 10000,20000 ouverts (Webmin/Virtualmin)..."
 			iptables -A INPUT -p tcp -m tcp --dport 20000:20010 -j ACCEPT
