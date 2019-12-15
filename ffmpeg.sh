@@ -21,6 +21,7 @@ while true; do
 done
 
 echo "### Étape 1.2 Nettoyage et mise à jour du système CentOS 7..."
+rm -rf ~/ffmpeg_build ~/ffmpeg_sources ~/bin/{ffmpeg,ffprobe,lame,x264,x265}
 yum -q clean all
 yum -y -q update
 yum install -q -y autoconf automake bzip2 bzip2-devel cmake freetype-devel gcc gcc-c++ git libtool make mercurial pkgconfig zlib-devel
@@ -102,10 +103,10 @@ cd libvpx
 make -s
 make -s install
 
-echo "### Librairies compilés, si aucune erreur c'est produite, vous pouvez continuer avec la compilation de FFMpeg."
+echo "### Étape 2 complété : Librairies compilés, si aucune erreur c'est produite, vous pouvez continuer avec la compilation de FFMpeg."
 read -p "### Appuyer sur [ENTRER] pour continuer... (ou CTRL+C pour annuler)"
 
-echo "### Compilation de FFMpeg (latest), ceci peut être (très) long..."
+echo "### Étape 3 : Compilation de FFMpeg (latest), ceci peut être (très) long..."
 cd ~/ffmpeg_sources
 curl -s -O -L https://ffmpeg.org/releases/ffmpeg-snapshot.tar.bz2
 tar xjf ffmpeg-snapshot.tar.bz2
